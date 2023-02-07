@@ -1,55 +1,47 @@
+function list() {
+    const list = document.querySelector('ul');
+    const input = document.querySelector('input');
+    const button = document.querySelector('button');
 
-const list = document.querySelector('ul');
-const input = document.querySelector('input');
-const button = document.querySelector('button');
-
-button.onclick = function (){
-    let newItem = input.value;
-    input.value = '';
-
-    let itemList = document.createElement('li');
-    let itemText = document.createElement('span');
-    let itemButton = document.createElement('button');
-
-    itemList.appendChild(itemText);
-    itemText.textContent = newItem;
-
-    itemList.appendChild(itemButton);
-    itemButton.textContent = 'fjern';
-
-    list.appendChild(itemList);
-
-    itemButton.onclick = function () {
-    list.removeChild(itemList);
-    }
-
-}
-
-function initEvent(){
     const inputElement = document.getElementById('fill');
 
-}
-
-function initEvent(){
     const buttonElement = document.getElementById('add');
 
-buttonElement.addEventListener('click', addName);
-}
-window.addEventListener('keyup', (event) => {
-    if(event.key === 'Enter'){
-        addName();
-    }
-}) ;
+    const itemListElement = document.getElementById('item-list');
 
-function addName(){
-    const liElement = document.createElement('li');
-    if(inputElement.value !==''){
-        liElement.textContent = inputElement.value;
-        resultElement.appendChild(liElement);
+
+    buttonElement.addEventListener('click', renderList);
+
+    window.addEventListener('keyup', (event) => {
+        if(event.code === 'Enter') {
+            renderList();
+        }
+    }) ;
+
+    function renderList(){
+        if(inputElement.value !== '') {
+            const liElement = document.createElement('li');
+            const itemButton = document.createElement('button');
+            itemButton.textContent = 'fjern';
+            liElement.textContent = inputElement.value;
+            liElement.appendChild(itemButton);
+            itemListElement.appendChild(liElement);
+            inputElement.value = '';
+            itemButton.addEventListener('click', () => {
+            itemListElement.removeChild(liElement);
+            })
+        } else {
+            alert('Skriv inn en gyldig verdi')
+        }
     }
 }
+list();
 
-initEvent();
+// localStorage.setItem
+// localStorage.getItem
+
+
+
 
 
 
