@@ -25,12 +25,34 @@ button.onclick = function (){
 
 }
 
+function initEvent(){
+    const inputElement = document.getElementById('fill');
+
+}
+
+function initEvent(){
+    const buttonElement = document.getElementById('add');
+
+buttonElement.addEventListener('click', addName);
+}
+window.addEventListener('keyup', (event) => {
+    if(event.key === 'Enter'){
+        addName();
+    }
+}) ;
+
+function addName(){
+    const liElement = document.createElement('li');
+    if(inputElement.value !==''){
+        liElement.textContent = inputElement.value;
+        resultElement.appendChild(liElement);
+    }
+}
+
+initEvent();
 
 
 
-
-
-console.log();
 
 
 
