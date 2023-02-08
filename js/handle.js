@@ -23,6 +23,7 @@ function list() {
             const liElement = document.createElement('li');
             const itemButton = document.createElement('button');
             itemButton.textContent = 'fjern';
+            itemButton.id = 'removeButton';
             liElement.textContent = inputElement.value;
             liElement.appendChild(itemButton);
             itemListElement.appendChild(liElement);
