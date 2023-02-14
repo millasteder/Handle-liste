@@ -38,9 +38,6 @@ function list() {
 }
 list();
 
-// localStorage.setItem
-// localStorage.getItem
-
 
 
 
